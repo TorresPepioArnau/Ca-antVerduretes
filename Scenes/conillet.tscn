@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://pwp2y26wvuxv"]
+
+[ext_resource type="Script" uid="uid://bypoecjcrv3j1" path="res://Scripts/conillet.gd" id="1_glxa0"]
+[ext_resource type="Texture2D" uid="uid://66lx20bdvvyr" path="res://Sprites/conillet.png" id="2_erlir"]
+[ext_resource type="Texture2D" uid="uid://bgvapvhfrr1eg" path="res://Sprites/AreaAtca.png" id="3_psgxr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_psgxr"]
+radius = 133.09395
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_erlir"]
+radius = 134.31537
+
+[node name="Conillet" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_glxa0")
+
+[node name="EfecteArea" type="Sprite2D" parent="."]
+modulate = Color(0, 0.790655, 0.3574337, 1)
+self_modulate = Color(1.3916477, 3.1010349, 3.2806463e-05, 1)
+position = Vector2(0, 128)
+texture = ExtResource("3_psgxr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_erlir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 14)
+shape = SubResource("CircleShape2D_psgxr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="AreaAtac" type="Area2D" parent="."]
+position = Vector2(0, 136)
+rotation = 0.36651915
+skew = 0.8220501
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtac"]
+position = Vector2(-19.082287, -19.200422)
+shape = SubResource("CircleShape2D_erlir")
+disabled = true
+
+[node name="TimerCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TimerCooldown" to="." method="_on_timer_cool_down_timeout"]
