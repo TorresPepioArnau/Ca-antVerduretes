@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbet12h1c4wuo"
-path="res://.godot/imported/blueGrassTile.png-7b5c2a88fab702afbce6d497a5a3f16c.ctex"
+uid="uid://dk2eaohy7x8u4"
+path="res://.godot/imported/dirtTileSpritesheet.png-35fcf94ec3854c9cf3464894be0b45ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://blueGrassTile.png"
-dest_files=["res://.godot/imported/blueGrassTile.png-7b5c2a88fab702afbce6d497a5a3f16c.ctex"]
+source_file="res://dirtTileSpritesheet.png"
+dest_files=["res://.godot/imported/dirtTileSpritesheet.png-35fcf94ec3854c9cf3464894be0b45ba.ctex"]
 
 [params]
 
