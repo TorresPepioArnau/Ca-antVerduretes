@@ -2,18 +2,26 @@ extends Node2D
 
 @export var spawns: Array[Spawn_info] = []
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var tilemap = $"../TileMapLayer"
 
 var time = 0
+var map_min: Vector2
+var map_max: Vector2
 
 signal change_time(time)
 
 func _ready():
 	connect("change_time", Callable(player,"change_time"))
+	var used_rect = tilemap.get_used_rect()
+
+	map_min = tilemap.to_global(tilemap.map_to_local(used_rect.position))
+
+	map_max = tilemap.to_global(tilemap.map_to_local(used_rect.position + used_rect.size))
 
 func _on_timer_timeout() -> void:
 	time += 1
-	var enemy_spawns = spawns
-	for i in enemy_spawns:
+
+	for i in spawns:
 		if time >= i.time_start and time <= i.time_end:
 			if i.spawn_delay_counter < i.enemy_spawn_delay:
 				i.spawn_delay_counter += 1
@@ -52,6 +60,9 @@ func get_random_position():
 			spawn_pos1 = top_left
 			spawn_pos2 = bottom_left
 
-	var x_spawn = randf_range(spawn_pos1.x, spawn_pos2.x)
-	var y_spawn = randf_range(spawn_pos1.y, spawn_pos2.y)
-	return Vector2(x_spawn, y_spawn)
+	var pos = Vector2(randf_range(spawn_pos1.x, spawn_pos2.x),randf_range(spawn_pos1.y, spawn_pos2.y))
+	pos.x = clamp(pos.x, map_min.x, map_max.x)
+	pos.y = clamp(pos.y, map_min.y, map_max.y)
+	pos.y += 10
+
+	return pos
