@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://pvv2b7ypbq0b"]
+
+[ext_resource type="Script" uid="uid://bypoecjcrv3j1" path="res://Scripts/conillet.gd" id="1_1rhkb"]
+[ext_resource type="Texture2D" uid="uid://bgvapvhfrr1eg" path="res://Sprites/AreaAtca.png" id="2_41sjq"]
+[ext_resource type="Texture2D" uid="uid://66lx20bdvvyr" path="res://Sprites/conillet.png" id="3_kww6k"]
+[ext_resource type="Texture2D" path="res://Sprites/barravida.png" id="4_cxvcc"]
+[ext_resource type="Texture2D" path="res://Sprites/vida.png" id="5_orkcy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_psgxr"]
+radius = 133.09395
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_erlir"]
+radius = 134.31537
+
+[node name="Conillet" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_1rhkb")
+
+[node name="EfecteArea" type="Sprite2D" parent="."]
+modulate = Color(0, 0.790655, 0.3574337, 1)
+self_modulate = Color(1.3916477, 3.1010349, 3.2806463e-05, 1)
+position = Vector2(0, 128)
+texture = ExtResource("2_41sjq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("3_kww6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 14)
+shape = SubResource("CircleShape2D_psgxr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="AreaAtac" type="Area2D" parent="."]
+position = Vector2(0, 136)
+rotation = 0.36651915
+skew = 0.8220501
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtac"]
+position = Vector2(-19.082287, -19.200422)
+shape = SubResource("CircleShape2D_erlir")
+disabled = true
+
+[node name="TimerCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="BarraVida" type="TextureProgressBar" parent="HUD/HUD"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 0
+offset_left = 510.0
+offset_top = 535.0
+offset_right = 574.0
+offset_bottom = 551.0
+scale = Vector2(4, 4)
+value = 35.0
+texture_over = ExtResource("4_cxvcc")
+texture_progress = ExtResource("5_orkcy")
+
+[connection signal="timeout" from="TimerCooldown" to="." method="_on_timer_cool_down_timeout"]

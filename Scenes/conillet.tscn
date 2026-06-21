@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://pwp2y26wvuxv"]
+[gd_scene load_steps=11 format=3 uid="uid://pwp2y26wvuxv"]
 
 [ext_resource type="Script" uid="uid://bypoecjcrv3j1" path="res://Scripts/conillet.gd" id="1_glxa0"]
 [ext_resource type="Texture2D" uid="uid://66lx20bdvvyr" path="res://Sprites/conillet.png" id="2_erlir"]
 [ext_resource type="Texture2D" uid="uid://bgvapvhfrr1eg" path="res://Sprites/AreaAtca.png" id="3_psgxr"]
 [ext_resource type="PackedScene" uid="uid://cy1taxl4kwv7e" path="res://Scenes/hurtbox.tscn" id="4_6kejg"]
+[ext_resource type="Texture2D" uid="uid://c6tm5yxlsvvum" path="res://Sprites/barravida.png" id="5_r3ipr"]
+[ext_resource type="Texture2D" uid="uid://cl53k834gfrd" path="res://Sprites/vida.png" id="6_iuu7p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psgxr"]
 radius = 133.09395
@@ -15,7 +17,7 @@ radius = 134.31537
 size = Vector2(40.75, 56.25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6kejg"]
-radius = 963.00055
+radius = 169.10648
 
 [node name="Conillet" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
@@ -80,6 +82,28 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
 shape = SubResource("CircleShape2D_6kejg")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="BarraVida" type="TextureProgressBar" parent="HUD/HUD"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 0
+offset_left = 510.0
+offset_top = 535.0
+offset_right = 574.0
+offset_bottom = 551.0
+scale = Vector2(4, 4)
+value = 35.0
+texture_over = ExtResource("5_r3ipr")
+texture_progress = ExtResource("6_iuu7p")
 
 [connection signal="timeout" from="TimerCooldown" to="." method="_on_timer_cool_down_timeout"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]

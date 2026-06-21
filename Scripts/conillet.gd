@@ -10,6 +10,7 @@ var estat_actual : Estats = Estats.IDLE
 @onready var colisio_atac = $AreaAtac/CollisionShape2D
 @onready var efecte_area = $EfecteArea
 @onready var timer_cooldown = $TimerCooldown
+@onready var barraVida = $%BarraVida
 @export var vida_maxima : int = 50
 var vida_actual : int
 
@@ -22,7 +23,7 @@ var flowerSpear = preload("res://Scenes/Attacks/flowerSpear.tscn")
 
 #FlowerSpear
 var flowerspear_amno = 0
-var flowerspear_baseamno = 3
+var flowerspear_baseamno = 1
 var flowerspear_attackspeed = 1.5
 var flowerspear_level = 1
 
@@ -42,6 +43,8 @@ func _ready() -> void:
 	timer_cooldown.timeout.connect(permetre_atac)
 	
 	attack()
+	_on_hurt_box_hurt(0)
+
 
 func _physics_process(_delta: float) -> void:
 	var direccio_pantalla = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -160,6 +163,8 @@ func permetre_atac() -> void:
 func _on_hurt_box_hurt(damage: Variant) -> void:
 	vida_actual -= damage
 	print(vida_actual)
+	barraVida.max_value = vida_maxima
+	barraVida.value = vida_actual
 
 func attack() -> void:
 	if flowerspear_level > 0:
