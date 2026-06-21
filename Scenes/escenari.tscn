@@ -139,6 +139,7 @@ physics_quadrant_size = 32
 z_index = 1
 position = Vector2(0, -113)
 scale = Vector2(0.15, 0.15)
+vida_maxima = 40
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_no2ia")]
 spawns = Array[ExtResource("6_bqp63")]([SubResource("Resource_gpdms"), SubResource("Resource_wuvi6"), SubResource("Resource_h51wx"), SubResource("Resource_6itsc")])
