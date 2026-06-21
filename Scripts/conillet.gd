@@ -11,8 +11,14 @@ var estat_actual : Estats = Estats.IDLE
 @onready var efecte_area = $EfecteArea
 @onready var timer_cooldown = $TimerCooldown
 @onready var barraVida = $%BarraVida
+@onready var tempsPartida = $HUD/HUD/TempsPartida
 @export var vida_maxima : int = 50
+
+#HP del conillet
 var vida_actual : int
+
+#Temps de joc
+var time = 0
 
 #Attacks
 var flowerSpear = preload("res://Scenes/Attacks/flowerSpear.tscn")
@@ -203,3 +209,14 @@ func _on_enemy_detection_area_body_entered(body: Node2D) -> void:
 func _on_enemy_detection_area_body_exited(body: Node2D) -> void:
 	if enemy_close.has(body):
 		enemy_close.erase(body)
+
+func change_time(argtime =0):
+	time = argtime
+	var get_m = int(time/60.0)
+	var get_s = time % 60
+	if get_m < 10:
+		get_m = str (0,get_m)
+	if get_s < 10:
+		get_s = str (0,get_s)
+	tempsPartida.text = str (get_m,":",get_s)
+			

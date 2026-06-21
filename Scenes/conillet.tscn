@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://pwp2y26wvuxv"]
+[gd_scene load_steps=12 format=3 uid="uid://pwp2y26wvuxv"]
 
 [ext_resource type="Script" uid="uid://bypoecjcrv3j1" path="res://Scripts/conillet.gd" id="1_glxa0"]
 [ext_resource type="Texture2D" uid="uid://66lx20bdvvyr" path="res://Sprites/conillet.png" id="2_erlir"]
 [ext_resource type="Texture2D" uid="uid://bgvapvhfrr1eg" path="res://Sprites/AreaAtca.png" id="3_psgxr"]
 [ext_resource type="PackedScene" uid="uid://cy1taxl4kwv7e" path="res://Scenes/hurtbox.tscn" id="4_6kejg"]
-[ext_resource type="Texture2D" uid="uid://c6tm5yxlsvvum" path="res://Sprites/barravida.png" id="5_r3ipr"]
-[ext_resource type="Texture2D" uid="uid://cl53k834gfrd" path="res://Sprites/vida.png" id="6_iuu7p"]
+[ext_resource type="Texture2D" uid="uid://eytsp8edtckd" path="res://Sprites/barravida.png" id="5_r3ipr"]
+[ext_resource type="Texture2D" uid="uid://wm1dkdvh4o0v" path="res://Sprites/vida.png" id="6_iuu7p"]
+[ext_resource type="FontFile" uid="uid://ecf8ixywt1fr" path="res://PixelifySans-VariableFont_wght.ttf" id="7_iuu7p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psgxr"]
 radius = 133.09395
@@ -94,16 +95,28 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BarraVida" type="TextureProgressBar" parent="HUD/HUD"]
 unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.39215687)
+self_modulate = Color(1, 1, 1, 0.6862745)
 layout_mode = 0
-offset_left = 510.0
-offset_top = 535.0
-offset_right = 574.0
-offset_bottom = 551.0
-scale = Vector2(4, 4)
+offset_left = 540.0
+offset_top = 525.0
+offset_right = 604.0
+offset_bottom = 541.0
+scale = Vector2(3, 3)
 value = 35.0
 texture_over = ExtResource("5_r3ipr")
 texture_progress = ExtResource("6_iuu7p")
+
+[node name="TempsPartida" type="Label" parent="HUD/HUD"]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 10.0
+offset_right = 675.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("7_iuu7p")
+theme_override_font_sizes/font_size = 20
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="TimerCooldown" to="." method="_on_timer_cool_down_timeout"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
