@@ -17,7 +17,7 @@ func _ready() -> void:
 	rotation = angle.angle() + deg_to_rad(135)
 	match level:
 		1:
-			vida = 2
+			vida = 1
 			speed = 100
 			damage = 10
 			knock_amount = 100
