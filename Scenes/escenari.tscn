@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://delr2a288eexc" path="res://Scenes/escenari.gd" id="1_wuvi6"]
 [ext_resource type="Texture2D" uid="uid://bvtgnjrl43xvb" path="res://Sprites/blueGrassTile.png" id="3_5lu6n"]
-[ext_resource type="Texture2D" uid="uid://dk2eaohy7x8u4" path="res://dirtTileSpritesheet.png" id="3_swyec"]
+[ext_resource type="Texture2D" uid="uid://dk2eaohy7x8u4" path="res://Sprites/dirtTileSpritesheet.png" id="3_swyec"]
 [ext_resource type="PackedScene" uid="uid://pwp2y26wvuxv" path="res://Scenes/conillet.tscn" id="3_wc2ky"]
-[ext_resource type="Texture2D" uid="uid://cvaae06go4662" path="res://grassSpritesheet.png" id="4_no2ia"]
+[ext_resource type="Texture2D" uid="uid://cvaae06go4662" path="res://Sprites/grassSpritesheet.png" id="4_no2ia"]
 [ext_resource type="PackedScene" uid="uid://bw8gx45ya5opj" path="res://Scenes/enemySpawner.tscn" id="5_no2ia"]
-[ext_resource type="Script" uid="uid://b7php0uncy71h" path="res://Scenes/spawn_info.gd" id="6_bqp63"]
+[ext_resource type="Script" uid="uid://b7php0uncy71h" path="res://Scripts/spawn_info.gd" id="6_bqp63"]
 [ext_resource type="PackedScene" uid="uid://bci2xkirgr0tr" path="res://Scenes/enemy.tscn" id="7_ubegj"]
 [ext_resource type="PackedScene" uid="uid://b2nuq7kmggsmp" path="res://Scenes/enemyMedium.tscn" id="8_ubegj"]
 [ext_resource type="PackedScene" uid="uid://dggp2to1wa4j5" path="res://Scenes/enemyStrong.tscn" id="9_gpdms"]
@@ -150,3 +150,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_h51wx")
 }
 speed_scale = 0.3
+[node name="MusicaJoc" type="AudioStreamPlayer2D" parent="."]

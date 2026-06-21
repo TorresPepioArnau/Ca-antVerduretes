@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5cffblutsma4"
-path="res://.godot/imported/flort.png-8985ef17952d4dd3b78886c4e0fd7d75.ctex"
+uid="uid://cvaae06go4662"
+path="res://.godot/imported/grassSpritesheet.png-3d7ab48d5fb570bc47e0db367947e9de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://flort.png"
-dest_files=["res://.godot/imported/flort.png-8985ef17952d4dd3b78886c4e0fd7d75.ctex"]
+source_file="res://Sprites/grassSpritesheet.png"
+dest_files=["res://.godot/imported/grassSpritesheet.png-3d7ab48d5fb570bc47e0db367947e9de.ctex"]
 
 [params]
 

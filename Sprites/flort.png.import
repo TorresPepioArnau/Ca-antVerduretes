@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk2eaohy7x8u4"
-path="res://.godot/imported/dirtTileSpritesheet.png-35fcf94ec3854c9cf3464894be0b45ba.ctex"
+uid="uid://c5cffblutsma4"
+path="res://.godot/imported/flort.png-d5c041f044e9ca0dfef678427dbba599.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dirtTileSpritesheet.png"
-dest_files=["res://.godot/imported/dirtTileSpritesheet.png-35fcf94ec3854c9cf3464894be0b45ba.ctex"]
+source_file="res://Sprites/flort.png"
+dest_files=["res://.godot/imported/flort.png-d5c041f044e9ca0dfef678427dbba599.ctex"]
 
 [params]
 
