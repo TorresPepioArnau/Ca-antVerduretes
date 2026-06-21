@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://uyt8eddhb1kt"]
+[gd_scene load_steps=10 format=3 uid="uid://uyt8eddhb1kt"]
 
 [ext_resource type="FontFile" uid="uid://ecf8ixywt1fr" path="res://Sprites/PixelifySans-VariableFont_wght.ttf" id="1_aijbi"]
 [ext_resource type="Script" uid="uid://dbmtte6khu2m8" path="res://Scripts/pantalla_fi.gd" id="1_kch8n"]
 [ext_resource type="Texture2D" uid="uid://bnssm41l5nclb" path="res://Sprites/Enemy/pastanaga.png" id="3_vdi4a"]
 [ext_resource type="Texture2D" uid="uid://0puto73rmgr" path="res://Sprites/trevol.png" id="4_2qc8w"]
 [ext_resource type="Texture2D" uid="uid://c5cffblutsma4" path="res://Sprites/flort.png" id="5_e6rni"]
+[ext_resource type="AudioStream" uid="uid://d04dwjgwhgpkj" path="res://Sprites/moodmode-game-8-bit-on-278083.mp3" id="6_2qc8w"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_kch8n"]
 
@@ -109,3 +110,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1fvgl")
 text = "SORTIR"
 
 [node name="MusicaMenu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_2qc8w")
+autoplay = true

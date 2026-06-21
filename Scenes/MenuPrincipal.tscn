@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6jmmxhc48lg8"]
+[gd_scene load_steps=11 format=3 uid="uid://b6jmmxhc48lg8"]
 
 [ext_resource type="Script" uid="uid://bakswtxp1b64w" path="res://Scripts/menu_principal.gd" id="1_vtrnu"]
 [ext_resource type="FontFile" uid="uid://ecf8ixywt1fr" path="res://Sprites/PixelifySans-VariableFont_wght.ttf" id="2_bt1tr"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bnssm41l5nclb" path="res://Sprites/Enemy/pastanaga.png" id="3_8kh3b"]
 [ext_resource type="Texture2D" uid="uid://0puto73rmgr" path="res://Sprites/trevol.png" id="5_vtrnu"]
 [ext_resource type="Texture2D" uid="uid://c5cffblutsma4" path="res://Sprites/flort.png" id="6_hbekh"]
+[ext_resource type="AudioStream" uid="uid://d04dwjgwhgpkj" path="res://Sprites/moodmode-game-8-bit-on-278083.mp3" id="7_hbekh"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_l10t8"]
 
@@ -114,6 +115,9 @@ position = Vector2(308, 871)
 texture = ExtResource("6_hbekh")
 
 [node name="MusicaMenu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_hbekh")
+volume_db = -20.194
+autoplay = true
 
 [connection signal="pressed" from="Contenidor/BotoJugar" to="." method="_on_boto_jugar_pressed"]
 [connection signal="pressed" from="Contenidor/BotoSortir" to="." method="_on_boto_sortir_pressed"]
