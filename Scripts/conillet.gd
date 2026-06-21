@@ -10,8 +10,24 @@ var estat_actual : Estats = Estats.IDLE
 @onready var colisio_atac = $AreaAtac/CollisionShape2D
 @onready var efecte_area = $EfecteArea
 @onready var timer_cooldown = $TimerCooldown
-@export var vida_maxima : int = 100
+@export var vida_maxima : int = 50
 var vida_actual : int
+
+#Attacks
+var flowerSpear = preload("res://Scenes/Attacks/flowerSpear.tscn")
+
+#AttackNodes
+@onready var flowerSpearTimer = get_node("%FlowerSpearTimer")
+@onready var flowerSpearAttackTimer = get_node("%FlowerSpearAttackTimer")
+
+#FlowerSpear
+var flowerspear_amno = 0
+var flowerspear_baseamno = 1
+var flowerspear_attackspeed = 1.5
+var flowerspear_level = 1
+
+#Enemy related
+var enemy_close = []
 
 #cooldown
 var pot_atacar : bool = true
@@ -24,6 +40,8 @@ func _ready() -> void:
 	
 	#connectar_timer
 	timer_cooldown.timeout.connect(permetre_atac)
+	
+	attack()
 
 func _physics_process(_delta: float) -> void:
 	var direccio_pantalla = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -142,3 +160,41 @@ func permetre_atac() -> void:
 func _on_hurt_box_hurt(damage: Variant) -> void:
 	vida_actual -= damage
 	print(vida_actual)
+
+func attack() -> void:
+	if flowerspear_level > 0:
+		flowerSpearTimer.wait_time = flowerspear_attackspeed
+		if flowerSpearTimer.is_stopped():
+			flowerSpearTimer.start()
+
+
+func _on_flower_spear_timer_timeout() -> void:
+	flowerspear_amno += flowerspear_baseamno
+	flowerSpearAttackTimer.start()
+
+func _on_flower_spear_attack_timer_timeout() -> void:
+	if flowerspear_amno > 0:
+		var flowerspear_attack = flowerSpear.instantiate()
+		flowerspear_attack.position = position
+		flowerspear_attack.target = get_random_target()
+		flowerspear_attack.level = flowerspear_level
+		add_child(flowerspear_attack)
+		flowerspear_amno -= 1
+		if flowerspear_amno > 0:
+			flowerSpearAttackTimer.start()
+		else:
+			flowerSpearAttackTimer.stop()
+
+func get_random_target():
+	if enemy_close.size() > 0:
+		return enemy_close.pick_random().global_position
+	else:
+		return Vector2.UP
+
+func _on_enemy_detection_area_body_entered(body: Node2D) -> void:
+	if not enemy_close.has(body):
+		enemy_close.append(body)
+
+func _on_enemy_detection_area_body_exited(body: Node2D) -> void:
+	if enemy_close.has(body):
+		enemy_close.erase(body)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dngatgrpxccht"]
+
+[ext_resource type="Script" uid="uid://bt8dt0kwlss2" path="res://Scenes/Attacks/flower_spear.gd" id="1_3bml2"]
+[ext_resource type="Texture2D" uid="uid://codgoipgtfj4d" path="res://Sprites/flor.png" id="1_kq861"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kq861"]
+radius = 26.24881
+
+[node name="FlowerSpear" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.55, 0.55)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_3bml2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kq861")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kq861")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

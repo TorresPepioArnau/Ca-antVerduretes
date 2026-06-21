@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://pwp2y26wvuxv"]
+[gd_scene load_steps=9 format=3 uid="uid://pwp2y26wvuxv"]
 
 [ext_resource type="Script" uid="uid://bypoecjcrv3j1" path="res://Scripts/conillet.gd" id="1_glxa0"]
 [ext_resource type="Texture2D" uid="uid://66lx20bdvvyr" path="res://Sprites/conillet.png" id="2_erlir"]
@@ -13,6 +13,9 @@ radius = 134.31537
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kejg"]
 size = Vector2(40.75, 56.25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6kejg"]
+radius = 269.77954
 
 [node name="Conillet" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
@@ -30,7 +33,6 @@ texture_filter = 1
 texture = ExtResource("2_erlir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-8, 14)
 shape = SubResource("CircleShape2D_psgxr")
 
@@ -61,7 +63,29 @@ position = Vector2(-1.5, 11.5)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_6kejg")
 
+[node name="Attack" type="Node2D" parent="."]
+
+[node name="FlowerSpearTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="FlowerSpearAttackTimer" type="Timer" parent="Attack/FlowerSpearTimer"]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[node name="EnemyDetectionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
+shape = SubResource("CircleShape2D_6kejg")
+
 [connection signal="timeout" from="TimerCooldown" to="." method="_on_timer_cool_down_timeout"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="timeout" from="Attack/FlowerSpearTimer" to="." method="_on_flower_spear_timer_timeout"]
+[connection signal="timeout" from="Attack/FlowerSpearTimer/FlowerSpearAttackTimer" to="." method="_on_flower_spear_attack_timer_timeout"]
+[connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
+[connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
 
 [editable path="HurtBox"]
