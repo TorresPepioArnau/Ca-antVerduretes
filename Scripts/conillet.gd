@@ -137,3 +137,8 @@ func _on_aterratge() -> void:
 #semafor
 func permetre_atac() -> void:
 	pot_atacar = true
+
+
+func _on_hurt_box_hurt(damage: Variant) -> void:
+	vida_actual -= damage
+	print(vida_actual)

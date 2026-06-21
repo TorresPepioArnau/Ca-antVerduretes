@@ -1,14 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://pwp2y26wvuxv"]
+[gd_scene load_steps=8 format=3 uid="uid://pwp2y26wvuxv"]
 
 [ext_resource type="Script" uid="uid://bypoecjcrv3j1" path="res://Scripts/conillet.gd" id="1_glxa0"]
 [ext_resource type="Texture2D" uid="uid://66lx20bdvvyr" path="res://Sprites/conillet.png" id="2_erlir"]
 [ext_resource type="Texture2D" uid="uid://bgvapvhfrr1eg" path="res://Sprites/AreaAtca.png" id="3_psgxr"]
+[ext_resource type="PackedScene" uid="uid://cy1taxl4kwv7e" path="res://Scenes/hurtbox.tscn" id="4_6kejg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psgxr"]
 radius = 133.09395
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_erlir"]
 radius = 134.31537
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kejg"]
+size = Vector2(40.75, 56.25)
 
 [node name="Conillet" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
@@ -26,11 +30,12 @@ texture_filter = 1
 texture = ExtResource("2_erlir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-8, 14)
 shape = SubResource("CircleShape2D_psgxr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 
 [node name="AreaAtac" type="Area2D" parent="."]
 position = Vector2(0, 136)
@@ -45,4 +50,18 @@ disabled = true
 [node name="TimerCooldown" type="Timer" parent="."]
 one_shot = true
 
+[node name="HurtBox" parent="." instance=ExtResource("4_6kejg")]
+light_mask = 1
+visibility_layer = 1
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(-1.5, 11.5)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_6kejg")
+
 [connection signal="timeout" from="TimerCooldown" to="." method="_on_timer_cool_down_timeout"]
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
