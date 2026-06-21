@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b2nuq7kmggsmp"]
 
-[ext_resource type="Script" uid="uid://b3jvtle7g8373" path="res://Scenes/enemy.gd" id="1_1ql2f"]
+[ext_resource type="Script" uid="uid://b3jvtle7g8373" path="res://Scripts/enemy.gd" id="1_1ql2f"]
 [ext_resource type="Texture2D" uid="uid://bdufrb3bv1p0s" path="res://Sprites/Enemy/tomaquet.png" id="2_1ql2f"]
 [ext_resource type="PackedScene" uid="uid://cy1taxl4kwv7e" path="res://Scenes/hurtbox.tscn" id="3_cgo8k"]
 [ext_resource type="PackedScene" uid="uid://dgnionras8jd2" path="res://Scenes/hitbox.tscn" id="4_o37o1"]

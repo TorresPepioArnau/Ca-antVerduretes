@@ -126,11 +126,16 @@ func rebre_dany(quantitat: int) -> void:
 	if estat_actual != Estats.HURT:
 		estat_actual = Estats.HURT
 		vida_actual -= quantitat
-		print("Ui! M'han fet dany. Vida restant: ", vida_actual)
+		print("Ui!. Vida restant: ", vida_actual)
+		
+		# Sincronitzar la barra de vida
+		barraVida.value = vida_actual
 		
 		if vida_actual <= 0:
 			print("El conillet ha estat derrotat!")
-			#gameover
+			#guardar_temps_al_autoload
+			Globals.temps_final_text = tempsPartida.text
+			get_tree().call_deferred("change_scene_to_file", "res://Scenes/PantallaFi.tscn")
 		else:
 			#viu
 			estat_actual = Estats.IDLE
@@ -171,6 +176,13 @@ func _on_hurt_box_hurt(damage: Variant) -> void:
 	print(vida_actual)
 	barraVida.max_value = vida_maxima
 	barraVida.value = vida_actual
+	
+	#comprovar_mort
+	if vida_actual <= 0:
+		#guardar_temps_al_autoload
+		Globals.temps_final_text = tempsPartida.text
+		#canviar_a_pantalla_fi
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/PantallaFi.tscn")
 
 func attack() -> void:
 	if flowerspear_level > 0:

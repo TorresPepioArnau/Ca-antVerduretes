@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bci2xkirgr0tr"]
 
-[ext_resource type="Script" uid="uid://b3jvtle7g8373" path="res://Scenes/enemy.gd" id="1_287tu"]
+[ext_resource type="Script" uid="uid://b3jvtle7g8373" path="res://Scripts/enemy.gd" id="1_287tu"]
 [ext_resource type="Texture2D" uid="uid://bnssm41l5nclb" path="res://Sprites/Enemy/pastanaga.png" id="2_287tu"]
 [ext_resource type="PackedScene" uid="uid://cy1taxl4kwv7e" path="res://Scenes/hurtbox.tscn" id="3_ghaa6"]
 [ext_resource type="PackedScene" uid="uid://dgnionras8jd2" path="res://Scenes/hitbox.tscn" id="4_1dp5w"]

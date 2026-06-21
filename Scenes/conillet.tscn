@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cy1taxl4kwv7e" path="res://Scenes/hurtbox.tscn" id="4_6kejg"]
 [ext_resource type="Texture2D" uid="uid://eytsp8edtckd" path="res://Sprites/barravida.png" id="5_r3ipr"]
 [ext_resource type="Texture2D" uid="uid://wm1dkdvh4o0v" path="res://Sprites/vida.png" id="6_iuu7p"]
-[ext_resource type="FontFile" uid="uid://ecf8ixywt1fr" path="res://PixelifySans-VariableFont_wght.ttf" id="7_iuu7p"]
+[ext_resource type="FontFile" uid="uid://ecf8ixywt1fr" path="res://Sprites/PixelifySans-VariableFont_wght.ttf" id="7_iuu7p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psgxr"]
 radius = 133.09395
