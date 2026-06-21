@@ -15,7 +15,7 @@ size = Vector2(13, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0830c"]
 size = Vector2(11, 29)
 
-[node name="enemy_broquil_strong" type="CharacterBody2D"]
+[node name="enemy_broquil_strong" type="CharacterBody2D" groups=["enemics"]]
 collision_layer = 5
 collision_mask = 5
 motion_mode = 1

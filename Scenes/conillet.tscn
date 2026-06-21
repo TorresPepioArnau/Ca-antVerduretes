@@ -12,7 +12,7 @@
 radius = 133.09395
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_erlir"]
-radius = 134.31537
+radius = 270.4927
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kejg"]
 size = Vector2(40.75, 56.25)
@@ -28,6 +28,7 @@ script = ExtResource("1_glxa0")
 modulate = Color(0, 0.790655, 0.3574337, 1)
 self_modulate = Color(1.3916477, 3.1010349, 3.2806463e-05, 1)
 position = Vector2(0, 128)
+scale = Vector2(2, 2)
 texture = ExtResource("3_psgxr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -46,11 +47,11 @@ zoom = Vector2(3, 3)
 position = Vector2(0, 136)
 rotation = 0.36651915
 skew = 0.8220501
+collision_layer = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtac"]
 position = Vector2(-19.082287, -19.200422)
 shape = SubResource("CircleShape2D_erlir")
-disabled = true
 
 [node name="TimerCooldown" type="Timer" parent="."]
 one_shot = true

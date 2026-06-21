@@ -111,4 +111,5 @@ text = "SORTIR"
 
 [node name="MusicaMenu" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_2qc8w")
+volume_db = -17.165
 autoplay = true

@@ -141,31 +141,43 @@ func rebre_dany(quantitat: int) -> void:
 			estat_actual = Estats.IDLE
 
 func _on_aterratge() -> void:
-	#efecte
+	#efecte visual
 	efecte_area.visible = true 
 	efecte_area.modulate.a = 1.0 
 	
-	#mal
-	colisio_atac.disabled = false
-	var cossos_dins = area_atac.get_overlapping_bodies()
-	for verdura in cossos_dins:
-		if verdura.is_in_group("enemics") and verdura.has_method("rebre_dany"):
-			verdura.rebre_dany(25)
+	print("--- CONILLET HA ATERRAT ---")
 	
-	#aturar_mal
-	colisio_atac.disabled = true
+	#comprovar cossos
+	var cossos_dins = area_atac.get_overlapping_bodies()
+	print("Cossos detectats a l'àrea: ", cossos_dins.size())
+	
+	for verdura in cossos_dins:
+		print(" > Veig el cos de: ", verdura.name)
+		if verdura.is_in_group("enemics") and verdura.has_method("rebre_dany"):
+			print(" -> IMPACTE DIRECTE A COS: ", verdura.name)
+			verdura.rebre_dany(25)
 			
-	#fade
+	#comprovar arees
+	var arees_dins = area_atac.get_overlapping_areas()
+	print("Àrees (Hurtboxes) detectades: ", arees_dins.size())
+	
+	for area in arees_dins:
+		if area.owner != null:
+			print(" > Veig la Hurtbox de: ", area.owner.name)
+			if area.owner.is_in_group("enemics") and area.owner.has_method("rebre_dany"):
+				print(" -> IMPACTE A TRAVÉS DE HURTBOX A: ", area.owner.name)
+				area.owner.rebre_dany(25)
+	
+	print("---------------------------")
+	
+	#animacio
 	var fade_tween = create_tween()
 	fade_tween.tween_property(efecte_area, "modulate:a", 0.0, 0.3) 
 	fade_tween.tween_callback(func(): efecte_area.visible = false)
 	
-	#idle
 	estat_actual = Estats.IDLE
-	
-	#timer
 	timer_cooldown.start()
-
+	
 #semafor
 func permetre_atac() -> void:
 	pot_atacar = true

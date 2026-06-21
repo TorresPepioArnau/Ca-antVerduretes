@@ -20,3 +20,6 @@ func _on_hurt_box_hurt(damage: Variant) -> void:
 	vida -= damage
 	if vida <= 0:
 		queue_free()
+
+func rebre_dany(quantitat: int) -> void:
+	_on_hurt_box_hurt(quantitat)
