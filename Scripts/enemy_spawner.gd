@@ -7,6 +7,7 @@ extends Node2D
 var time = 0
 var map_min: Vector2
 var map_max: Vector2
+const MAP_MARGIN = 64
 
 signal change_time(time)
 
@@ -61,8 +62,7 @@ func get_random_position():
 			spawn_pos2 = bottom_left
 
 	var pos = Vector2(randf_range(spawn_pos1.x, spawn_pos2.x),randf_range(spawn_pos1.y, spawn_pos2.y))
-	pos.x = clamp(pos.x, map_min.x, map_max.x)
-	pos.y = clamp(pos.y, map_min.y, map_max.y)
-	pos.y += 10
+	pos.x = clamp(pos.x, map_min.x + MAP_MARGIN, map_max.x - MAP_MARGIN)
+	pos.y = clamp(pos.y, map_min.y + MAP_MARGIN, map_max.y - MAP_MARGIN)
 
 	return pos
