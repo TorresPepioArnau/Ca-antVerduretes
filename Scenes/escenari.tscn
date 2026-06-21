@@ -144,6 +144,12 @@ vida_maxima = 40
 [node name="EnemySpawner" parent="." instance=ExtResource("5_no2ia")]
 spawns = Array[ExtResource("6_bqp63")]([SubResource("Resource_gpdms"), SubResource("Resource_wuvi6"), SubResource("Resource_h51wx"), SubResource("Resource_6itsc")])
 
+[node name="MapLimitTopLeft" type="Marker2D" parent="." groups=["map_limits"]]
+position = Vector2(-2020, -1492)
+
+[node name="MapLimitBottomRight" type="Marker2D" parent="." groups=["map_limits"]]
+position = Vector2(3378, 2740)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate"]

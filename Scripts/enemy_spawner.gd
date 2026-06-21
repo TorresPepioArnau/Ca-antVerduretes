@@ -3,21 +3,14 @@ extends Node2D
 @export var spawns: Array[Spawn_info] = []
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var tilemap = $"../TileMapLayer"
+@onready var limit_top = $"../MapLimitTopLeft"
+@onready var limit_bottom = $"../MapLimitBottomRight"
 
 var time = 0
-var map_min: Vector2
-var map_max: Vector2
-const MAP_MARGIN = 64
-
 signal change_time(time)
 
 func _ready():
 	connect("change_time", Callable(player,"change_time"))
-	var used_rect = tilemap.get_used_rect()
-
-	map_min = tilemap.to_global(tilemap.map_to_local(used_rect.position))
-
-	map_max = tilemap.to_global(tilemap.map_to_local(used_rect.position + used_rect.size))
 
 func _on_timer_timeout() -> void:
 	time += 1
@@ -38,7 +31,10 @@ func _on_timer_timeout() -> void:
 	emit_signal("change_time",time)
 
 func get_random_position():
+	var min_pos = limit_top.global_position
+	var max_pos = limit_bottom.global_position
 	var vpr = get_viewport_rect().size*randf_range(1.1,1.4)
+
 	var top_left = Vector2(player.global_position.x - vpr.x/2, player.global_position.y - vpr.y/2)
 	var top_right = Vector2(player.global_position.x + vpr.x/2, player.global_position.y - vpr.y/2)
 	var bottom_left = Vector2(player.global_position.x - vpr.x/2, player.global_position.y + vpr.y/2)
@@ -62,7 +58,7 @@ func get_random_position():
 			spawn_pos2 = bottom_left
 
 	var pos = Vector2(randf_range(spawn_pos1.x, spawn_pos2.x),randf_range(spawn_pos1.y, spawn_pos2.y))
-	pos.x = clamp(pos.x, map_min.x + MAP_MARGIN, map_max.x - MAP_MARGIN)
-	pos.y = clamp(pos.y, map_min.y + MAP_MARGIN, map_max.y - MAP_MARGIN)
+	pos.x = clamp(pos.x, min_pos.x, max_pos.x)
+	pos.y = clamp(pos.y, min_pos.y, max_pos.y)
 
 	return pos
