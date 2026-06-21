@@ -95,24 +95,24 @@ func generar_floretes() -> void:
 	#afegir_originals
 	llista_particules.append_array(llista_originals)
 	
-	#crear_nomes_15_clons_nous
+	#crear_15_clons_nous
 	for i in range(15):
 		var base_escollida = llista_probabilitats.pick_random()
 		var clon = base_escollida.duplicate()
 		$Decoracio.add_child(clon)
 		llista_particules.append(clon)
 		
-	#repartir_totes_per_la_pantalla
+	#repartir_per_la_pantalla
 	for element in llista_particules:
 		#mida_molt_mes_petita
 		var mida = randf_range(0.6, 1.2)
 		element.scale = Vector2(mida, mida)
 		
-		#repartides_per_TOTA_la_pantalla (eix Y de 0 al final)
+		#repartides_per_TOTA_la_pantalla
 		element.position.x = randf_range(0, amplada)
 		element.position.y = randf_range(0, alcada)
 		
-		#velocitat_vent_una_mica_mes_suau
+		#velocitat_vent
 		var velocitat_vent = randf_range(10.0, 35.0)
 		element.set_meta("velocitat", velocitat_vent)
 

@@ -128,7 +128,7 @@ func rebre_dany(quantitat: int) -> void:
 		vida_actual -= quantitat
 		print("Ui!. Vida restant: ", vida_actual)
 		
-		# Sincronitzar la barra de vida
+		#sincronitzar la barra de vida
 		barraVida.value = vida_actual
 		
 		if vida_actual <= 0:

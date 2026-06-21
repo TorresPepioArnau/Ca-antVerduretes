@@ -49,6 +49,17 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("CanvasTexture_l10t8")
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 234.5
+offset_right = 1125.0
+offset_bottom = 354.5
+theme_override_fonts/font = ExtResource("2_bt1tr")
+theme_override_font_sizes/font_size = 100
+text = "CAÇANT VERDURETES"
+horizontal_alignment = 1
+
 [node name="Contenidor" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -64,13 +75,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 9
 alignment = 1
-
-[node name="Label" type="Label" parent="Contenidor"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_bt1tr")
-theme_override_font_sizes/font_size = 100
-text = "CA-ANT"
-horizontal_alignment = 1
 
 [node name="BotoJugar" type="Button" parent="Contenidor"]
 layout_mode = 2

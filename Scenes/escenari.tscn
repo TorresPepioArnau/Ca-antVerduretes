@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=4 uid="uid://dtowseb2n15rd"]
 
-[ext_resource type="Script" uid="uid://delr2a288eexc" path="res://Scenes/escenari.gd" id="1_wuvi6"]
+[ext_resource type="Script" uid="uid://delr2a288eexc" path="res://Scripts/escenari.gd" id="1_wuvi6"]
 [ext_resource type="Texture2D" uid="uid://bvtgnjrl43xvb" path="res://Sprites/blueGrassTile.png" id="3_5lu6n"]
 [ext_resource type="Texture2D" uid="uid://dk2eaohy7x8u4" path="res://Sprites/dirtTileSpritesheet.png" id="3_swyec"]
 [ext_resource type="PackedScene" uid="uid://pwp2y26wvuxv" path="res://Scenes/conillet.tscn" id="3_wc2ky"]
@@ -145,10 +145,10 @@ vida_maxima = 40
 spawns = Array[ExtResource("6_bqp63")]([SubResource("Resource_gpdms"), SubResource("Resource_wuvi6"), SubResource("Resource_h51wx"), SubResource("Resource_6itsc")])
 
 [node name="MapLimitTopLeft" type="Marker2D" parent="." groups=["map_limits"]]
-position = Vector2(-2020, -1492)
+position = Vector2(-2220, -1668)
 
 [node name="MapLimitBottomRight" type="Marker2D" parent="." groups=["map_limits"]]
-position = Vector2(3378, 2740)
+position = Vector2(3618, 2964)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 

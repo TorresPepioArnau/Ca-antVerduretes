@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 			element.position.x = amplada + 100
 			element.position.y = randf_range(0, alcada)
 
-#animacio_pastanaga_victoriosa
+#animacio_pastanaga
 func animar_pastanaga() -> void:
 	var amplada = get_viewport_rect().size.x
 	var alcada_terra = 550.0 
@@ -89,7 +89,7 @@ func generar_floretes() -> void:
 	#afegir_originals
 	llista_particules.append_array(llista_originals)
 	
-	#crear_nomes_15_clons_nous
+	#crear_15_clons_nous
 	for i in range(15):
 		var base_escollida = llista_probabilitats.pick_random()
 		var clon = base_escollida.duplicate()
@@ -98,7 +98,7 @@ func generar_floretes() -> void:
 		
 	#repartir_totes_per_la_pantalla
 	for element in llista_particules:
-		#mida_molt_mes_petita
+		#mida
 		var mida = randf_range(0.6, 1.2)
 		element.scale = Vector2(mida, mida)
 		
