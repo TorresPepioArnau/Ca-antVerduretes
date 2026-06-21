@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dggp2to1wa4j5"]
+
+[ext_resource type="Script" uid="uid://b3jvtle7g8373" path="res://Scenes/enemy.gd" id="1_6m1vf"]
+[ext_resource type="Texture2D" uid="uid://crkyb3esoik2d" path="res://Sprites/Enemy/broquil.png" id="2_6m1vf"]
+[ext_resource type="PackedScene" uid="uid://cy1taxl4kwv7e" path="res://Scenes/hurtbox.tscn" id="3_oogwh"]
+[ext_resource type="PackedScene" uid="uid://dgnionras8jd2" path="res://Scenes/hitbox.tscn" id="4_14r2j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1f0kj"]
+radius = 4.0
+height = 28.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afpow"]
+size = Vector2(13, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0830c"]
+size = Vector2(11, 29)
+
+[node name="enemy_broquil_strong" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_6m1vf")
+movement_speed = 38
+vida = 40
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("2_6m1vf")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_1f0kj")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_oogwh")]
+light_mask = 1
+visibility_layer = 1
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_afpow")
+
+[node name="Hitbox" parent="." instance=ExtResource("4_14r2j")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_0830c")
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
+[editable path="Hitbox"]
