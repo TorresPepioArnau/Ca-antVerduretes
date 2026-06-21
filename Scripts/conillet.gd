@@ -22,7 +22,7 @@ var flowerSpear = preload("res://Scenes/Attacks/flowerSpear.tscn")
 
 #FlowerSpear
 var flowerspear_amno = 0
-var flowerspear_baseamno = 1
+var flowerspear_baseamno = 3
 var flowerspear_attackspeed = 1.5
 var flowerspear_level = 1
 

@@ -15,7 +15,7 @@ radius = 134.31537
 size = Vector2(40.75, 56.25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6kejg"]
-radius = 169.10648
+radius = 963.00055
 
 [node name="Conillet" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true

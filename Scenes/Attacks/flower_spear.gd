@@ -3,7 +3,7 @@ extends Area2D
 var level: int = 1
 var vida: int = 1
 var speed: int = 100
-var damage: int = 5
+var damage: int = 10
 var knock_amount: int = 100
 var attack_size: float = 1.0
 
@@ -17,11 +17,14 @@ func _ready() -> void:
 	rotation = angle.angle() + deg_to_rad(135)
 	match level:
 		1:
-			vida = 1
+			vida = 2
 			speed = 100
-			damage = 5
+			damage = 10
 			knock_amount = 100
-			attack_size = 1.0
+			attack_size = 0.5
+	var tween = create_tween()
+	tween.tween_property(self,"scale",Vector2(1,1)*attack_size,1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.play()
 
 func _physics_process(delta: float) -> void:
 	position += angle*speed*delta
