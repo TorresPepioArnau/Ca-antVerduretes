@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0puto73rmgr"
-path="res://.godot/imported/trevol.png-94f39a32c2f96f0f3bd75b5159731cfd.ctex"
+uid="uid://cubjyg0to2w2e"
+path="res://.godot/imported/blueGrass.png-3a8719c70680afb93b251c9beb8a5ac6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://trevol.png"
-dest_files=["res://.godot/imported/trevol.png-94f39a32c2f96f0f3bd75b5159731cfd.ctex"]
+source_file="res://Sprites/blueGrass.png"
+dest_files=["res://.godot/imported/blueGrass.png-3a8719c70680afb93b251c9beb8a5ac6.ctex"]
 
 [params]
 

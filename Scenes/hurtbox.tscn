@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cy1taxl4kwv7e"]
 
-[ext_resource type="Script" uid="uid://c4fd0prgwjnvf" path="res://Scenes/hurtbox.gd" id="1_rnnan"]
+[ext_resource type="Script" uid="uid://c4fd0prgwjnvf" path="res://Scripts/hurtbox.gd" id="1_rnnan"]
 
 [node name="HurtBox" type="Area2D"]
 light_mask = 0

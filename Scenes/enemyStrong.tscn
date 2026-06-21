@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dggp2to1wa4j5"]
 
-[ext_resource type="Script" uid="uid://b3jvtle7g8373" path="res://Scenes/enemy.gd" id="1_6m1vf"]
+[ext_resource type="Script" uid="uid://b3jvtle7g8373" path="res://Scripts/enemy.gd" id="1_6m1vf"]
 [ext_resource type="Texture2D" uid="uid://crkyb3esoik2d" path="res://Sprites/Enemy/broquil.png" id="2_6m1vf"]
 [ext_resource type="PackedScene" uid="uid://cy1taxl4kwv7e" path="res://Scenes/hurtbox.tscn" id="3_oogwh"]
 [ext_resource type="PackedScene" uid="uid://dgnionras8jd2" path="res://Scenes/hitbox.tscn" id="4_14r2j"]

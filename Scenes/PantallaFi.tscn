@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://uyt8eddhb1kt"]
+
+[ext_resource type="FontFile" uid="uid://ecf8ixywt1fr" path="res://Sprites/PixelifySans-VariableFont_wght.ttf" id="1_aijbi"]
+[ext_resource type="Script" uid="uid://dbmtte6khu2m8" path="res://Scripts/pantalla_fi.gd" id="1_kch8n"]
+[ext_resource type="Texture2D" uid="uid://bnssm41l5nclb" path="res://Sprites/Enemy/pastanaga.png" id="3_vdi4a"]
+[ext_resource type="Texture2D" uid="uid://0puto73rmgr" path="res://Sprites/trevol.png" id="4_2qc8w"]
+[ext_resource type="Texture2D" uid="uid://c5cffblutsma4" path="res://Sprites/flort.png" id="5_e6rni"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kch8n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4kxg"]
+bg_color = Color(0.487274, 0.6341403, 0.14049542, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fvgl"]
+bg_color = Color(0.8318866, 0.50626165, 0.33710092, 1)
+
+[node name="PantallaFi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kch8n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.25350118, 0.26510322, 0.11170138, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_kch8n")
+
+[node name="Titol" type="Label" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 223.0
+offset_right = 1178.0
+offset_bottom = 343.0
+theme_override_fonts/font = ExtResource("1_aijbi")
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="TempsFinal" type="Label" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 399.0
+offset_right = 1178.0
+offset_bottom = 519.0
+theme_override_fonts/font = ExtResource("1_aijbi")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+
+[node name="Decoracio" type="Node2D" parent="."]
+
+[node name="Pastanaga" type="Sprite2D" parent="Decoracio"]
+position = Vector2(227, 592)
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("3_vdi4a")
+
+[node name="Trevol" type="Sprite2D" parent="Decoracio"]
+position = Vector2(137, 854)
+texture = ExtResource("4_2qc8w")
+
+[node name="Trevol2" type="Sprite2D" parent="Decoracio"]
+position = Vector2(248, 804)
+texture = ExtResource("4_2qc8w")
+
+[node name="Flor" type="Sprite2D" parent="Decoracio"]
+position = Vector2(308, 871)
+texture = ExtResource("5_e6rni")
+
+[node name="Contenidor" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.5
+offset_top = 78.5
+offset_right = 161.5
+offset_bottom = 337.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="BotoTornar" type="Button" parent="Contenidor"]
+layout_mode = 2
+size_flags_horizontal = 5
+theme_override_fonts/font = ExtResource("1_aijbi")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4kxg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1fvgl")
+text = "JUGAR"
+
+[node name="BotoMenu" type="Button" parent="Contenidor"]
+layout_mode = 2
+size_flags_horizontal = 5
+theme_override_fonts/font = ExtResource("1_aijbi")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4kxg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1fvgl")
+text = "SORTIR"
+
+[node name="MusicaMenu" type="AudioStreamPlayer2D" parent="."]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvaae06go4662"
-path="res://.godot/imported/grassSpritesheet.png-bbdb3f68f7e63d0c853c9fc21364b4ec.ctex"
+uid="uid://0puto73rmgr"
+path="res://.godot/imported/trevol.png-a3a011ab1fbdb3ac1a2bca6d3fa8f149.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grassSpritesheet.png"
-dest_files=["res://.godot/imported/grassSpritesheet.png-bbdb3f68f7e63d0c853c9fc21364b4ec.ctex"]
+source_file="res://Sprites/trevol.png"
+dest_files=["res://.godot/imported/trevol.png-a3a011ab1fbdb3ac1a2bca6d3fa8f149.ctex"]
 
 [params]
 
