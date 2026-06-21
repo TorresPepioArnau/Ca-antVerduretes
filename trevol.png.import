@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0puto73rmgr"
-path="res://.godot/imported/trevol.png-a3a011ab1fbdb3ac1a2bca6d3fa8f149.ctex"
+path="res://.godot/imported/trevol.png-94f39a32c2f96f0f3bd75b5159731cfd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/trevol.png"
-dest_files=["res://.godot/imported/trevol.png-a3a011ab1fbdb3ac1a2bca6d3fa8f149.ctex"]
+source_file="res://trevol.png"
+dest_files=["res://.godot/imported/trevol.png-94f39a32c2f96f0f3bd75b5159731cfd.ctex"]
 
 [params]
 

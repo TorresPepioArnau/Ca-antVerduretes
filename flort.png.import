@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5cffblutsma4"
-path="res://.godot/imported/flort.png-d5c041f044e9ca0dfef678427dbba599.ctex"
+path="res://.godot/imported/flort.png-8985ef17952d4dd3b78886c4e0fd7d75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/flort.png"
-dest_files=["res://.godot/imported/flort.png-d5c041f044e9ca0dfef678427dbba599.ctex"]
+source_file="res://flort.png"
+dest_files=["res://.godot/imported/flort.png-8985ef17952d4dd3b78886c4e0fd7d75.ctex"]
 
 [params]
 
